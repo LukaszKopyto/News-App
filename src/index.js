@@ -1,11 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Switch>
+        <Route path="/:section?" component={App} />
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root'),
 );

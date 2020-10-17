@@ -6,7 +6,10 @@ params.append('show-fields', 'thumbnail,trailText');
 
 export const source = axios.CancelToken.source();
 
-export const fetchArticles = async (api, dataSetter, errorSetter = null) => {
+export const fetchArticles = async (api, dataSetter, errorSetter = null, section = null) => {
+  if (section) {
+    params.append('section', section);
+  }
   try {
     errorSetter(false);
 
