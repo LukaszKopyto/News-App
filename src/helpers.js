@@ -3,8 +3,10 @@ import axios from 'axios';
 const params = new URLSearchParams([['api-key', process.env.REACT_APP_API_KEY]]);
 params.append('order-by', 'newest');
 
-export const fetchArticles = async (api, dataSetter) => {
+export const fetchArticles = async (api, dataSetter, errorSetter = null) => {
   try {
+    errorSetter(false);
+
     const {
       data: {
         response: { results },
@@ -13,6 +15,6 @@ export const fetchArticles = async (api, dataSetter) => {
 
     dataSetter(results);
   } catch (error) {
-    console.log(error);
+    errorSetter(true);
   }
 };
