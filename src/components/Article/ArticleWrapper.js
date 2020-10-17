@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { colors } from 'utils/colors';
 import { breakpoints } from 'utils/breakpoints';
 
+const { primary, shadow } = colors;
+
 const ArticleWrapper = styled.article`
   display: flex;
   flex-direction: column;
@@ -16,30 +18,53 @@ const ArticleWrapper = styled.article`
   }
   & div {
     flex: 1;
-    margin: 0 15px 15px;
+    margin: 0 1.5rem 1.5rem;
     & h3 {
-      color: ${colors.primary};
+      color: ${primary};
       margin-top: 0;
     }
+    & p {
+      margin-bottom: 2rem;
+    }
     & span:first-of-type {
-      color: ${colors.primary};
-      border: 2px solid ${colors.primary};
-      padding: 5px 10px;
-      margin-right: 10px;
+      color: white;
+      background: ${shadow};
+      padding: 0.5rem 1rem;
+      margin-right: 1rem;
       text-transform: uppercase;
       font-weight: 600;
     }
     & span:nth-child(2) {
-      color: ${colors.primary};
+      color: ${primary};
       font-weight: 600;
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 1.5rem;
     }
+    & div:last-of-type {
+      margin: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+      top: -0.4rem;
+      position: relative;
+    }
+  }
+  & div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
   }
 
   @media ${breakpoints.laptop} {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  @media ${breakpoints.desktop} {
+    & div:nth-child(1) {
+      max-width: 35rem;
+    }
   }
 `;
 
