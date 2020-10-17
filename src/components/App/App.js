@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API } from '../../api';
-import { fetchArticles } from '../../helpers';
+import { fetchArticles, source } from '../../helpers';
 
 const App = () => {
   const [articles, setArticles] = useState([]);
@@ -8,7 +8,9 @@ const App = () => {
 
   useEffect(() => {
     fetchArticles(API, setArticles, setErrors);
-    return () => {};
+    return () => {
+      source.cancel();
+    };
   }, []);
 
   return (

@@ -3,6 +3,8 @@ import axios from 'axios';
 const params = new URLSearchParams([['api-key', process.env.REACT_APP_API_KEY]]);
 params.append('order-by', 'newest');
 
+export const source = axios.CancelToken.source();
+
 export const fetchArticles = async (api, dataSetter, errorSetter = null) => {
   try {
     errorSetter(false);
@@ -11,7 +13,7 @@ export const fetchArticles = async (api, dataSetter, errorSetter = null) => {
       data: {
         response: { results },
       },
-    } = await axios(api, { params });
+    } = await axios(api, { params, cancelToken: source.token });
 
     dataSetter(results);
   } catch (error) {
