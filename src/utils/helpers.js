@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const params = new URLSearchParams([['api-key', process.env.REACT_APP_API_KEY]]);
 params.append('order-by', 'newest');
+params.append('show-fields', 'thumbnail,trailText');
 
 export const source = axios.CancelToken.source();
 
