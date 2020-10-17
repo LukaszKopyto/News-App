@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { API } from '../../api';
-import { fetchArticles, source } from '../../helpers';
+import { fetchArticles, source } from 'utils/helpers';
+import { API } from 'utils/api';
 
 const App = () => {
   const [articles, setArticles] = useState([]);
