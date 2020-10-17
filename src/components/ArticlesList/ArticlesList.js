@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchArticles, source } from 'utils/helpers';
 import { API } from 'utils/api';
+import ArticlesListWrapper from 'components/ArticlesList/ArticlesListWrapper';
 import Article from 'components/Article/Article';
 
 const ArticlesList = () => {
@@ -16,12 +17,12 @@ const ArticlesList = () => {
 
   return (
     <>
-      {errors && <p>There is error with the server, please come back later</p>}
-      <section>
+      <ArticlesListWrapper>
+        {errors && <p>There is error with the server, please come back later</p>}
         {articles.map((article) => (
           <Article key={article.id} article={article} />
         ))}
-      </section>
+      </ArticlesListWrapper>
     </>
   );
 };
