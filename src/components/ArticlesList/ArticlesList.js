@@ -26,7 +26,7 @@ const ArticlesList = () => {
           <Article key={article.id} article={article} />
         ))}
       </ArticlesListWrapper>
-      <Pagination />
+      {section && <Pagination />}
     </>
   );
 };
