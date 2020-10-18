@@ -4,10 +4,15 @@ import ArticleWrapper from 'components/Article/ArticleWrapper';
 import Button from 'components/Button/Button';
 import firebase from 'components/Firebase/firebase';
 
-const Article = ({ article }) => {
-  const handleOnClick = () => {
+const Article = ({ article, forLater, dbId }) => {
+  const addToDatabase = () => {
     const articleRef = firebase.database().ref('articles');
     articleRef.push(article);
+  };
+
+  const removeFromDatabase = () => {
+    const articleRef = firebase.database().ref(`articles/${dbId}`);
+    articleRef.remove();
   };
 
   return (
@@ -23,7 +28,11 @@ const Article = ({ article }) => {
         </p>
         <p>{article.fields.trailText}</p>
         <div>
-          <Button onClick={handleOnClick}>Read later</Button>
+          {forLater ? (
+            <Button onClick={removeFromDatabase}>Remove</Button>
+          ) : (
+            <Button onClick={addToDatabase}>Read later</Button>
+          )}
           <Button href={article.webUrl} target="_blank" rel="noopener noreferrer">
             Read more...
           </Button>
@@ -35,6 +44,8 @@ const Article = ({ article }) => {
 
 Article.propTypes = {
   article: PropTypes.object.isRequired,
+  forLater: PropTypes.bool,
+  dbId: PropTypes.string,
 };
 
 export default Article;
