@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from 'utils/colors';
 
 const RightNavWrapper = styled.ul`
   list-style: none;
@@ -16,7 +15,7 @@ const RightNavWrapper = styled.ul`
 
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: ${colors.primary};
+    background-color: ${({ theme }) => theme.colors.primary};
     position: fixed;
     transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
     top: 0;
@@ -28,11 +27,11 @@ const RightNavWrapper = styled.ul`
     z-index: 1;
 
     li {
-      color: ${colors.shadow};
+      color: ${({ theme }) => theme.colors.shadow};
       padding: 2.8rem 3rem;
 
       &:hover {
-        color: ${colors.secondary};
+        color: ${({ theme }) => theme.colors.secondary};
         font-weight: 800;
       }
     }

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from 'utils/colors';
 
 const BurgerWrapper = styled.div`
   width: 4rem;
@@ -16,7 +15,7 @@ const BurgerWrapper = styled.div`
   div {
     width: 4rem;
     height: 0.4rem;
-    background-color: ${({ open }) => (open ? '#ccc' : colors.secondary)};
+    background-color: ${({ theme, open }) => (open ? theme.colors.shadow : theme.colors.secondary)};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
