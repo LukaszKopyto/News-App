@@ -21,8 +21,12 @@ const RightNav = ({ open }) => (
       </NavLink>
     </li>
     <li>
-      <NavLink to="/world" activeStyle={{ fontWeight: 800 }} title="World News">
-        World News
+      <NavLink
+        to="/articles/for-later"
+        activeStyle={{ fontWeight: 800 }}
+        title="Articles for later"
+      >
+        Articles for later
       </NavLink>
     </li>
   </RightNavWrapper>
