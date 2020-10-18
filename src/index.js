@@ -1,21 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from 'theme/GlobalStyle';
 import { theme } from 'theme/theme';
-import App from './components/App/App';
+import App from 'components/App/App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Router>
-        <Switch>
-          <Route path="/:section?" component={App} />
-        </Switch>
-      </Router>
+      <App />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),

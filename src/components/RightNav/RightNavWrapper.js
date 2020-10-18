@@ -7,9 +7,26 @@ const RightNavWrapper = styled.ul`
 
   li {
     padding: 1.8rem 1rem;
+    display: inline-block;
 
-    &:hover {
-      font-weight: 800;
+    & a {
+      text-decoration: none;
+      color: ${({ theme }) => theme.colors.secondary};
+      display: inline-block;
+      text-align: center;
+
+      &::before {
+        display: block;
+        content: attr(title);
+        font-weight: 800;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+      }
+
+      &:hover {
+        font-weight: 800;
+      }
     }
   }
 
