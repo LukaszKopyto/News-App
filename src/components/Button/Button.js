@@ -1,19 +1,16 @@
 import styled from 'styled-components';
-import { colors } from 'utils/colors';
-
-const { primary, shadow, bgColor } = colors;
 
 const Button = styled.a`
-  color: ${primary};
+  color: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
   font-weight: 600;
-  border: 0.2rem solid ${primary};
+  border: 0.2rem solid ${({ theme }) => theme.colors.primary};
   padding: 0.5rem 1rem;
-  box-shadow: -0.4rem 0.4rem 0 0 ${shadow};
+  box-shadow: -0.4rem 0.4rem 0 0 ${({ theme }) => theme.colors.shadow};
 
   &:hover {
-    background: ${primary};
-    color: ${bgColor};
+    background: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.bgColor};
   }
 `;
 
