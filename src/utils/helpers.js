@@ -2,13 +2,18 @@ import axios from 'axios';
 
 axios.defaults.headers.get.Accept = 'application/json';
 
-const params = new URLSearchParams([['api-key', process.env.REACT_APP_API_KEY]]);
-params.append('order-by', 'newest');
-params.append('show-fields', 'thumbnail,trailText');
+const params = new URLSearchParams([
+  ['api-key', process.env.REACT_APP_API_KEY],
+  ['page', 1],
+  ['page-size', 10],
+  ['order-by', 'newest'],
+  ['show-fields', 'thumbnail,trailText'],
+]);
 
 export const source = axios.CancelToken.source();
 
-export const fetchArticles = async (api, dataSetter, errorSetter, section = null) => {
+export const fetchArticles = async (api, dataSetter, errorSetter, section = null, page = 1) => {
+  params.set('page', page);
   if (section) {
     params.set('section', section);
   } else {
@@ -18,12 +23,10 @@ export const fetchArticles = async (api, dataSetter, errorSetter, section = null
     errorSetter(false);
 
     const {
-      data: {
-        response: { results },
-      },
+      data: { response },
     } = await axios(api, { params });
 
-    dataSetter(results);
+    dataSetter(response.results);
   } catch (error) {
     // console.log(error);
     errorSetter(true);

@@ -4,18 +4,19 @@ import { fetchArticles, source } from 'utils/helpers';
 import { API } from 'utils/api';
 import ArticlesListWrapper from 'components/ArticlesList/ArticlesListWrapper';
 import Article from 'components/Article/Article';
+import Pagination from 'components/Pagination/Pagination';
 
 const ArticlesList = () => {
   const [articles, setArticles] = useState([]);
   const [errors, setErrors] = useState(false);
-  const { section } = useParams();
+  const { section, pageNum } = useParams();
 
   useEffect(() => {
-    fetchArticles(API, setArticles, setErrors, section);
+    fetchArticles(API, setArticles, setErrors, section, pageNum);
     return () => {
       source.cancel();
     };
-  }, [section]);
+  }, [section, pageNum]);
 
   return (
     <>
@@ -25,6 +26,7 @@ const ArticlesList = () => {
           <Article key={article.id} article={article} />
         ))}
       </ArticlesListWrapper>
+      <Pagination />
     </>
   );
 };

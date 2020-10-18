@@ -11,7 +11,7 @@ const App = () => {
         <Route component={Header} />
         <Switch>
           <Route path="/articles/for-later" component={ArticlesListsForLater} />
-          <Route path="/:section?" component={ArticlesList} />
+          <Route path="/:section?/:pageNum?" component={ArticlesList} />
         </Switch>
       </Router>
     </>
