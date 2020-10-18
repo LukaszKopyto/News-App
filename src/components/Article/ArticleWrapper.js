@@ -26,12 +26,14 @@ const ArticleWrapper = styled.article`
       margin-bottom: 2rem;
     }
 
-    & span:first-of-type {
+    & span:first-of-type,
+    p[data-value='added'] {
       color: white;
       background: ${({ theme }) => theme.colors.shadow};
       padding: 0.5rem 1rem;
       margin-right: 1rem;
       text-transform: uppercase;
+      text-align: center;
       font-weight: 600;
     }
 
