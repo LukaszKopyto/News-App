@@ -27,6 +27,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## To do
+- add pagination on home page
+- correct pagination (dynamic pagination, add "go to first" and "go to last" button)
+- filter saved news into categories
+
 ## Available Scripts
 
 In the project directory, you can run:
