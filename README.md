@@ -34,6 +34,18 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+To run this app in the development mode, you have to add .env file in root directory, with API key, and keys to access  Firebase Realtime Database.
+```
+REACT_APP_API_KEY = "xxxxxxxxxxxxxx"
+REACT_APP_FIREBASE_API_KEY = "xxxxxxxxxxxxxx"
+REACT_APP_AUTH_DOMAIN = "xxxxxxxxxxxxxx"
+REACT_APP_DATABASE_URL = "xxxxxxxxxxxxxx"
+REACT_APP_PROJECT_ID = "xxxxxxxxxxxxxx"
+REACT_APP_STORAGE_BUCKET = "xxxxxxxxxxxxxx"
+REACT_APP_MESSAGING_SENDER_ID = "xxxxxxxxxxxxxx"
+REACT_APP_APP_ID = "xxxxxxxxxxxxxx"
+````
+
 In the project directory, you can run:
 
 ### `npm start`
@@ -43,11 +55,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
